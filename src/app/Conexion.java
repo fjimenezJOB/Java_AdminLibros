@@ -4,7 +4,7 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class Conexion{
-    private static final String CONEXION = "jdbc:mysql://franjimenez:Hello1234@34.70.67.249/libreriatoni";
+    private static final String CONEXION = "jdbc:mysql://diPnGMlN01:Sy8WnewH4t@remotemysql.com/diPnGMlN01";
 
     public static void buscarLibros(String titulo) {
 
