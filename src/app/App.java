@@ -45,7 +45,7 @@ public class App {
                     Scanner scan = new Scanner(System.in);
                     String id = scan.nextLine();
                     int id_libro = Integer.parseInt(id);
-                    Conexion.eliminarLibro(id_libro);
+                    Conexion.tituloEliminación(id_libro);
                     break;
                 case "4":
                     exitLoop = true;
