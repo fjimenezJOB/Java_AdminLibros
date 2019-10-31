@@ -21,7 +21,7 @@ public class Conexion{
                             "WHERE b.title LIKE '%"+titulo+"%'"
             );
             while (resultado.next()) {
-
+                System.out.println("***************************************");
                 String year =  resultado.getString("year");
                 String id =  resultado.getString("book_id");
                 String title = resultado.getString("title");
@@ -61,8 +61,34 @@ public class Conexion{
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println(ex.getMessage());
         }
-
     }
+
+    public static void tituloEliminación(Integer id){
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conect = DriverManager.getConnection(CONEXION);
+            Statement sentencia = conect.createStatement();
+            ResultSet titulo = sentencia.executeQuery(
+                    "SELECT title FROM books " +
+                            "WHERE book_id LIKE "+id);
+
+            while (titulo.next()) {
+                String title = titulo.getString("title");
+                System.out.println("Seguro que quieres eliminar el libro " + id + "- " + "'" + title + "' si: (s)/no: (n)");
+                Scanner pregunta = new Scanner(System.in);
+                String cadena = pregunta.nextLine();
+                conect.close();
+                if (cadena.equals("s")) {
+                    eliminarLibro(id);
+                } else if (cadena.equals("n")) {
+                    System.out.println("Se ha cancelado correctamente");
+                }
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
     public static String menu(){
         System.out.println("*************** MENU *****************\n");
         System.out.println("1. BUSCAR libro en BD.\n");
