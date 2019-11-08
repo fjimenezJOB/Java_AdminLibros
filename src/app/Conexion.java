@@ -95,8 +95,8 @@ public class Conexion{
         System.out.println("2. INSERTAR libro en la BD.\n");
         System.out.println("3. ELIMINAR libro en la BD.\n");
         System.out.println("4. SALIR.\n");
-        Scanner scan= new Scanner(System.in);
-        String eleccion = scan.nextLine();
+        Scanner sca= new Scanner(System.in);
+        String eleccion = sca.nextLine();
         return eleccion;
     }
 }
